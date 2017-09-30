@@ -1,0 +1,122 @@
+// Use this file to overwrite the basic Bootstrap variables and add your own variables
+// To overwrite a Bootstrap variable you don´t have to touch the Bootstrap folder. 
+// Just copy a variable from /sass/bootstrap/_variables.scss, paste it here and edit the value.
+// As example you find one of the most important Bootstrap variable below: $brand-primary.
+// Thats the ugly Bootstrap blue used for all the links, primary buttons etc.
+// Just add your color code here, compile the theme.scss file to change this color everywhere
+
+
+$brand-primary:         #77ad1b; //#ff6d5a
+
+// Basics of a navbar
+$navbar-height:                    60px;
+$navbar-margin-bottom:             0px;
+$navbar-border-radius:             0px;
+
+$dn-grey: #678182;
+$dn-default: #666666;
+
+$grid-gutter-width: 30px;
+$grid-gutter-width-base: $grid-gutter-width;
+
+$designWidth: 1600;
+
+$screen-md-max: 991px;
+
+$font-family-roboto: 'Roboto', sans-serif;
+$font-family-cabin: 'Cabin', sans-serif;
+
+@function get-vw($size) {
+  $vw-context: ($designWidth * .01) * 1px;
+  @return ($size / $vw-context) * 1vw;
+}
+@function get-vw-important($size) {
+  $vw-context: ($designWidth * .01) * 1px;
+  @return ($size / $vw-context) * 1vw !important;
+}
+@function get-px($size) {
+  $px-context: strip-units($size / $designWidth);
+  @return ($px-context * $screen-md-max);
+}
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+@mixin font-size($size) {
+  font-size: get-px($size);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    font-size: get-vw($size);
+  }
+  @media (min-width: $designWidth * 1px) {
+    font-size: $size;
+  }
+}
+@mixin line-height($size) {
+  line-height: get-px($size);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    line-height: get-vw($size);
+  }
+  @media (min-width: $designWidth * 1px) {
+    line-height: $size;
+  }
+}
+@mixin paddingFull($sizeT, $sizeR, $sizeB, $sizeL) {
+  padding: get-px($sizeT) get-px($sizeR)get-px($sizeB) get-px($sizeL);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    padding: get-vw($sizeT) get-vw($sizeR)get-vw($sizeB) get-vw($sizeL);
+  }
+  @media (min-width: $designWidth * 1px) {
+    padding: $sizeT $sizeR $sizeB $sizeL;
+  }
+}
+@mixin marginFull($sizeT, $sizeR, $sizeB, $sizeL) {
+  margin: get-px($sizeT) get-px($sizeR)get-px($sizeB) get-px($sizeL);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    margin: get-vw($sizeT) get-vw($sizeR)get-vw($sizeB) get-vw($sizeL);
+  }
+  @media (min-width: $designWidth * 1px) {
+    margin: $sizeT $sizeR $sizeB $sizeL;
+  }
+}
+@mixin marginBottom($sizeB) {
+  margin-bottom: get-px($sizeB);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    margin-bottom: get-vw($sizeB);
+  }
+  @media (min-width: $designWidth * 1px) {
+    margin-bottom: $sizeB;
+  }
+}
+@mixin padding($size) {
+  padding: get-px($size);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    padding: get-vw($size);
+  }
+  @media (min-width: $designWidth * 1px) {
+    padding: $size;
+  }
+}
+@mixin height($size) {
+  height: get-px($size);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    height: get-vw($size);
+  }
+  @media (min-width: $designWidth * 1px) {
+    height: $size;
+  }
+}
+@mixin width($size) {
+  width: get-px($size);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    width: get-vw($size);
+  }
+  @media (min-width: $designWidth * 1px) {
+    width: $size;
+  }
+}
+@mixin dnTransition($p:all, $t:300ms) {
+  -webkit-transition: $p $t ease-in-out;
+  -moz-transition: $p $t ease-in-out;
+  -ms-transition: $p $t ease-in-out;
+  -o-transition: $p $t ease-in-out;
+  transition: $p $t ease-in-out;
+}
