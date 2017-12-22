@@ -14,7 +14,7 @@
                     <div class="copyright">
                         <p>&copy; Copyright <?=date('Y')?> Design Network Architecture Limited</p>
                         <a href="<?=get_page_link(13)?>" class="sitemap-wrapper">Sitemap</a>
-                        <div class="website-by-wrapper">Website by: <a href="http://www.azwebsolutions.co.nz" target="_blank">A-Z Web Solutions Ltd</a></div>
+                        <div class="website-by-wrapper">Website by: <a href="http://www.azwebsolutions.co.nz" target="_blank">A-Z Web Solutions Ltd</a><span>A-Z</span></div>
                     </div>
                 </div>
             </div>

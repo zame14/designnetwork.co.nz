@@ -113,6 +113,15 @@ $font-family-cabin: 'Cabin', sans-serif;
     width: $size;
   }
 }
+@mixin top($size) {
+  top: get-px($size);
+  @media (min-width: $screen-md-max) and (max-width: ($designWidth - 1) * 1px) {
+    top: get-vw($size);
+  }
+  @media (min-width: $designWidth * 1px) {
+    top: $size;
+  }
+}
 @mixin dnTransition($p:all, $t:300ms) {
   -webkit-transition: $p $t ease-in-out;
   -moz-transition: $p $t ease-in-out;

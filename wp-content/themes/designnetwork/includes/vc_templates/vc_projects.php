@@ -9,16 +9,20 @@ vc_map( array(
 add_shortcode( 'dn_projects', 'dnProjects' );
 
 function dnProjects() {
+    $i = 1;
+    $class = 'col-md-6';
     $html = '
     <div class="row vc_row-o-equal-height vc_row-flex project-list">';
         foreach(getProjects() as $project) {
-
+            $imageid = getImageID($project->getFeatureImage());
+            $img = wp_get_attachment_image_src($imageid, 'feature');
+            if($i > 2) $class = 'col-md-4';
             $html .= '
-            <div class="col-xs-12 col-sm-6 project">
+            <div class="col-xs-12 col-sm-12 ' . $class . ' project">
                 <a href="' . $project->link() . '">
                     <div class="inner-wrapper">
                         <div class="image-wrapper">
-                            <img src="' . $project->getFeatureImage() . '" alt="' . $project->getTitle() . '" />
+                            <img src="' . $img[0] . '" alt="' . $project->getTitle() . '" />
                         </div>
                         <div class="title-wrapper">
                             <h3>' . $project->getTitle() . '</h3>
@@ -27,6 +31,7 @@ function dnProjects() {
                     </div>
                 </a>
             </div>';
+            $i++;
         }
     $html .= '
     </div>';

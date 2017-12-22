@@ -14,12 +14,14 @@ function dnOtherProjects() {
     <div class="row vc_row-o-equal-height vc_row-flex">';
     foreach(getProjects() as $project) {
         if($project->id() <> $post->ID) {
+            $imageid = getImageID($project->getFeatureImage());
+            $img = wp_get_attachment_image_src($imageid, 'feature');
             $html .= '
-            <div class="col-xs-12 col-sm-4 other-projects">
+            <div class="col-xs-12 col-sm-12 col-md-3 other-projects">
                 <a href="' . $project->link() . '">
                     <div class="inner-wrapper">
                         <div class="image-wrapper">
-                            <img src="' . $project->getFeatureImage() . '" alt="' . $project->getTitle() . '" />
+                            <img src="' . $img[0] . '" alt="' . $project->getTitle() . '" />
                         </div>
                         <div class="title-wrapper">
                             <h3>' . $project->getTitle() . '</h3>

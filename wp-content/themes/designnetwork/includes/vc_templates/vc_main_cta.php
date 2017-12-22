@@ -10,7 +10,7 @@ add_shortcode( 'dn_main_cta', 'dnMainCTA' );
 
 function dnMainCTA() {
     $html = '
-    <div class="row no-gutters">
+    <div class="row no-gutters cta-main-inner-wrapper">
         <div class="col-xs-12 col-md-5 cta-col-1">
             <div class="image-wrapper">
                 <img src="' . get_stylesheet_directory_uri() . '/images/double-story.jpg" alt="" />
@@ -20,15 +20,15 @@ function dnMainCTA() {
                 <a href="' . get_page_link(12) . '" class="btn btn-default">Start your journey</a>
             </div>
         </div>
-        <div class="hidden-xs col-md-7 cta-col-2">
+        <div class="hidden-xs-down col-md-7 cta-col-2">
             <div class="row no-gutters">
-                <div class="col-md-4 img-wrapper">
+                <div class="col-sm-4 col-md-4 img-wrapper">
                     <img src="' . get_stylesheet_directory_uri() . '/images/cta-1.jpg" alt="" />
                 </div>
-                <div class="col-md-4 img-wrapper">
+                <div class="col-sm-4 col-md-4 img-wrapper">
                     <img src="' . get_stylesheet_directory_uri() . '/images/cta-2.jpg" alt="" />
                 </div>   
-                <div class="col-md-4 img-wrapper">
+                <div class="col-sm-4 col-md-4 img-wrapper">
                     <img src="' . get_stylesheet_directory_uri() . '/images/cta-3.jpg" alt="" />
                 </div>
             </div>
@@ -36,11 +36,11 @@ function dnMainCTA() {
                 <div class="col-md-12 bottom-img-wrapper">
                     <img src="' . get_stylesheet_directory_uri() . '/images/cta-4.jpg" alt="" />
                 </div>
-                <div class="col-md-12 bottom-slogan-wrapper">
-                    <div class="slogan-1">&lsquo;Your Partner in Successful Development&rsquo;</div>
-                    <div class="slogan-2">NEW-development - NEW-design - NEW-trends - NEW-concepts</div>
-                </div>
             </div>
+        </div>
+        <div class="bottom-slogan-wrapper">
+            <div class="slogan-1">&lsquo;Your Partner in Successful Development&rsquo;</div>
+            <div class="slogan-2">NEW-development - NEW-design - NEW-trends - NEW-concepts</div>
         </div>
     </div>';
 

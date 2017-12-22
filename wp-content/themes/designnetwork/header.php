@@ -25,7 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
         <section id="header">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12">
+                    <div class="col-xs-12 col-md-12 no-padding">
                         <a href="<?=get_home_url()?>" class="logo"><img src="<?=get_stylesheet_directory_uri()?>/images/logo.png" alt="Design Network Architecture Limited" /></a>
                         <div class="phone-wrapper"><a href="tel:045696109" class="phone-number">04 569 6109</a></div>
                         <div id="dn-menu-wrapper">

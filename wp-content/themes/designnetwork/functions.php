@@ -14,6 +14,7 @@ function rk_enqueue_styles() {
     wp_enqueue_style( 'google_font_cabin', 'https://fonts.googleapis.com/css?family=Cabin:400,700');
     wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/node_modules/slick-carousel/slick/slick.css');
     wp_enqueue_script( 'masonry', get_stylesheet_directory_uri() . '/node_modules/masonry-layout/dist/masonry.pkgd.js');
+    wp_enqueue_script( 'waypoint', get_stylesheet_directory_uri() . '/node_modules/waypoints/lib/noframework.waypoints.min.js');
     wp_enqueue_script('understap-theme-js', get_stylesheet_directory_uri() . '/js/theme.js?' . filemtime(get_stylesheet_directory() . '/js/theme.js'), array('jquery'));
     wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/node_modules/slick-carousel/slick/slick.js');
 }
@@ -30,7 +31,19 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
 add_filter( 'vc_load_default_templates', 'bfe_vc_load_default_templates' ); // Hook in
 
-add_image_size( 'feature-image-size', 767, 511, true);
+add_image_size( 'feature', 767, 511, true);
+add_image_size( 'banner', 2000 );
+add_image_size( 'gallery', 767 );
+
+function getImageID($image_url)
+{
+    global $wpdb;
+    $sql = 'SELECT post_id FROM wp_toolset_post_guid_id WHERE guid = "' . $image_url . '"';
+    $result = $wpdb->get_results($sql);
+
+    return $result[0]->post_id;
+}
+
 
 function bfe_vc_load_default_template( $data ) {
     return array();

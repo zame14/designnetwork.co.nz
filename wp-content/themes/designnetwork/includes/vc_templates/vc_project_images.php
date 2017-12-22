@@ -19,9 +19,11 @@ function projectGallery( $atts ) {
     <div class="gallery">';
     //$html .= '<div class="grid-item"><img src="' . $featureSrc[0] . '" alt="" /></div>';
     foreach($project->getProjectImages() as $images) {
+        $imageid = getImageID($images);
+        $img = wp_get_attachment_image_src($imageid, 'gallery');
         $html .= '
             <figure class="gallery-item">
-                <div class="gallery-icon"><img src="' . wp_make_link_relative($images) . '" alt="" onclick="openModal();currentSlide(' . $i . ')" /><span class="fa fa-search"></span></div>
+                <div class="gallery-icon"><img src="' . wp_make_link_relative($img[0]) . '" alt="" onclick="openModal();currentSlide(' . $i . ')" /><span class="fa fa-search"></span></div>
             </figure>';
         $i++;
     }
